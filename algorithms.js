@@ -24,3 +24,9 @@ const factorial = (num) => {
 
 console.log(factorial(5)); // 120
 
+// Using recursion to calculate the factorial WITH memoization
+const memoFactorial = memoize(factorial);
+
+console.log(memoFactorial(5)); // 120
+
+
