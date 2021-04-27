@@ -29,4 +29,18 @@ const memoFactorial = memoize(factorial);
 
 console.log(memoFactorial(5)); // 120
 
+// Linear Search 
+const linearSearch = (list, item) => {
+  let result = -1
+  list.forEach((listItem, index) => {
+    if (listItem === item) {
+      result = index;
+    }
+  });
+  
+  return result;
+}
+
+console.log(linearSearch([2, 5, 7, 90, 103], 90)); // 3
+console.log(linearSearch([2, 5, 7, 90, 103], 91)); // -1
 
