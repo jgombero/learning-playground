@@ -17,3 +17,20 @@ const user1 = badUserCreator("Badman", 2);
 user1.increment();
 
 
+// Using classes
+class UserCreator {
+  constructor(name, score) {
+    this.name = name;
+    this.score = score;
+  }
+  increment() { this.score++ }
+  login() { console.log(`${this.name} is logged in`) }
+}
+
+const user2 = new UserCreator("Batman", 99);
+// console.log(user2);
+// user2.increment();
+// console.log(user2);
+// console.log(UserCreator);
+
+
