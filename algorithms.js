@@ -127,3 +127,42 @@ const bubbleSort2 = (list) => { // using do while loop
 
 console.log(bubbleSort2([7, 6, 1, 12])); // [1, 6, 7, 12]
 
+// Merge Sort (split the array into halves and merge them recursively)
+const mergeSort = (list) => {
+  if (list.length === 1) {
+    // return once we hit an array with a single item
+    return list;
+  }
+
+  const middle = Math.floor(list.length / 2); // get the middle item of the array rounded down
+  const left = list.slice(0, middle); // items on the left side
+  const right = list.slice(middle); // items on the right side
+
+  const sortedLeft = mergeSort(left);
+  console.log("sortedLeft: ", sortedLeft);
+  const sortedRight = mergeSort(right);
+  console.log("sortedRight: ", sortedRight);
+
+  return merge(sortedLeft, sortedRight);
+}
+
+const merge = (left, right) => {
+  let result = [];
+  let indexLeft = 0;
+  let indexRight = 0;
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+      result.push(left[indexLeft]);
+      indexLeft++;
+    } else {
+      result.push(right[indexRight]);
+      indexRight++;
+    }
+  }
+
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));
+}
+
+const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
+console.log(mergeSort(list)) // [1, 2, 2, 3, 3, 3, 5, 6, 7, 8]
