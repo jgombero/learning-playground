@@ -99,3 +99,31 @@ const bubbleSort1 = (list) => { // using while loop
 
 console.log(bubbleSort1([7, 6, 1, 12])); // [1, 6, 7, 12]
 
+const bubbleSort2 = (list) => { // using do while loop
+  let countOuter = 0;
+  let countInner = 0;
+  let countSwap = 0;
+
+  let swapped;
+
+  do {
+    countOuter++;
+    swapped = false;
+    for (let i = 0; i < list.length; i++) {
+      countInner++;
+      if( list[i] && list[i + 1] && list[i] > list[i + 1]) {
+        countSwap++;
+        const num = list[i];
+        list[i] = list[i + 1];
+        list[i + 1] = num;
+        swapped = true;
+      }
+    }
+  } while(swapped);
+
+  console.log(`outer: ${countOuter}, inner: ${countInner}, swap: ${countSwap}`);
+  return list;
+}
+
+console.log(bubbleSort2([7, 6, 1, 12])); // [1, 6, 7, 12]
+
