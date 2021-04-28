@@ -70,3 +70,32 @@ const binarySearch = (list, item) => {
 console.log(binarySearch([2, 6, 7, 90, 103], 90)); // 3
 console.log(binarySearch([2, 6, 7, 90, 103], 91)); // -1
 
+// Bubble Sort
+const bubbleSort1 = (list) => { // using while loop
+  let changed = false;
+  let sorted = false;
+  let index = 0;
+
+  while (!sorted) {
+    if (index === list.length - 1 && !changed) {
+      sorted = true;
+    } else if (index === list.length - 1 && changed) {
+      index = 0;
+      changed = false;
+    }
+    
+    if (list[index] && list[index + 1] && list[index] > list[index + 1]) {
+      const num = list[index];
+      list[index] = list[index + 1];
+      list[index + 1] = num;
+      changed = true;
+    }
+    
+    index++;
+  }
+  
+  return list;
+}
+
+console.log(bubbleSort1([7, 6, 1, 12])); // [1, 6, 7, 12]
+
