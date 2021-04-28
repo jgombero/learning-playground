@@ -187,4 +187,31 @@ const makeChange = (value) => {
   return minCoins + 1;
 }
 
-console.log(makeChange(12)); // 2
+
+// Same as above but with memoization
+const memoMakeChange = (coins) => {
+  const changeCache = {};
+
+  return function insideMakeChange(value) {
+    if (changeCache[value]) return changeCache[value]; // if it's cached, return that value
+  
+    let minCoins = -1;
+  
+    // Find the best coin combo
+    coins.forEach((coin) => {
+      if (value - coin >= 0) {
+        let currMinCoins = insideMakeChange(value - coin);
+        if (minCoins === -1 || currMinCoins < minCoins) {
+          minCoins = currMinCoins;
+        }
+      }
+    });
+  
+    changeCache[value] = minCoins + 1;
+    return changeCache[value];
+  }
+}
+
+const memoizedMakeChange = memoMakeChange(coins);
+
+console.log(memoizedMakeChange(12));
