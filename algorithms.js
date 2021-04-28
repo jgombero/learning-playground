@@ -22,12 +22,12 @@ const factorial = (num) => {
   }
 }
 
-console.log(factorial(5)); // 120
+// console.log(factorial(5)); // 120
 
 // Using recursion to calculate the factorial WITH memoization
 const memoFactorial = memoize(factorial);
 
-console.log(memoFactorial(5)); // 120
+// console.log(memoFactorial(5)); // 120
 
 // Linear Search 
 const linearSearch = (list, item) => {
@@ -41,8 +41,8 @@ const linearSearch = (list, item) => {
   return result;
 }
 
-console.log(linearSearch([2, 5, 7, 90, 103], 90)); // 3
-console.log(linearSearch([2, 5, 7, 90, 103], 91)); // -1
+// console.log(linearSearch([2, 5, 7, 90, 103], 90)); // 3
+// console.log(linearSearch([2, 5, 7, 90, 103], 91)); // -1
 
 // Binary Search (divide and conquer)
 const binarySearch = (list, item) => {
@@ -67,8 +67,8 @@ const binarySearch = (list, item) => {
   return -1;
 }
 
-console.log(binarySearch([2, 6, 7, 90, 103], 90)); // 3
-console.log(binarySearch([2, 6, 7, 90, 103], 91)); // -1
+// console.log(binarySearch([2, 6, 7, 90, 103], 90)); // 3
+// console.log(binarySearch([2, 6, 7, 90, 103], 91)); // -1
 
 // Bubble Sort
 const bubbleSort1 = (list) => { // using while loop
@@ -97,7 +97,7 @@ const bubbleSort1 = (list) => { // using while loop
   return list;
 }
 
-console.log(bubbleSort1([7, 6, 1, 12])); // [1, 6, 7, 12]
+// console.log(bubbleSort1([7, 6, 1, 12])); // [1, 6, 7, 12]
 
 const bubbleSort2 = (list) => { // using do while loop
   let countOuter = 0;
@@ -125,7 +125,7 @@ const bubbleSort2 = (list) => { // using do while loop
   return list;
 }
 
-console.log(bubbleSort2([7, 6, 1, 12])); // [1, 6, 7, 12]
+// console.log(bubbleSort2([7, 6, 1, 12])); // [1, 6, 7, 12]
 
 // Merge Sort (split the array into halves and merge them recursively)
 const mergeSort = (list) => {
@@ -139,9 +139,7 @@ const mergeSort = (list) => {
   const right = list.slice(middle); // items on the right side
 
   const sortedLeft = mergeSort(left);
-  console.log("sortedLeft: ", sortedLeft);
   const sortedRight = mergeSort(right);
-  console.log("sortedRight: ", sortedRight);
 
   return merge(sortedLeft, sortedRight);
 }
@@ -165,7 +163,7 @@ const merge = (left, right) => {
 }
 
 const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
-console.log(mergeSort(list)) // [1, 2, 2, 3, 3, 3, 5, 6, 7, 8]
+// console.log(mergeSort(list)) // [1, 2, 2, 3, 3, 3, 5, 6, 7, 8]
 
 // Brute Force using recursion (Find all options and pick the best one). Finding the smallest number of coins to give change (not real coins)
 const coins = [10, 6, 1];
@@ -187,6 +185,7 @@ const makeChange = (value) => {
   return minCoins + 1;
 }
 
+// console.log(makeChange(12)); // 2
 
 // Same as above but with memoization
 const memoMakeChange = (coins) => {
