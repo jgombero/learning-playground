@@ -166,3 +166,25 @@ const merge = (left, right) => {
 
 const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
 console.log(mergeSort(list)) // [1, 2, 2, 3, 3, 3, 5, 6, 7, 8]
+
+// Brute Force using recursion (Find all options and pick the best one). Finding the smallest number of coins to give change (not real coins)
+const coins = [10, 6, 1];
+
+const makeChange = (value) => {
+  if (value === 0) return 0; // Base case
+  let minCoins;
+
+  coins.forEach((coin) => {
+    if (value - coin >= 0) {
+      let currMinCoins = makeChange(value - coin);
+
+      if (minCoins === undefined || currMinCoins < minCoins) {
+        minCoins = currMinCoins;
+      }
+    }
+  });
+
+  return minCoins + 1;
+}
+
+console.log(makeChange(12)); // 2
